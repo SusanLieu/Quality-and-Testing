@@ -27,12 +27,12 @@ public class InventoryTest {
 
         //Set up for r1
         r1 = new Recipe();
-        r1.setName("Coffee");
-        r1.setAmtChocolate("0");
-        r1.setAmtCoffee("3");
-        r1.setAmtMilk("1");
-        r1.setAmtSugar("1");
-        r1.setPrice("50");
+        //r1.setName("Coffee");
+        r1.setAmtCoffee("4");
+        r1.setAmtMilk("3");
+        r1.setAmtSugar("2");
+        r1.setAmtChocolate("1");
+        //r1.setPrice("50");
 
     }
 
@@ -304,24 +304,43 @@ public class InventoryTest {
 
     @Test
     public void enoughIngredients_shouldPass() {
-        // boolean result
-        inventory.setChocolate(15);
-        inventory.setSugar(15);
-        inventory.setMilk(15);
+        /*
+        * r.getAmtCoffee and the others come from the useIngredients method below this method. This is called
+        * by the CoffeeMaker class in the method makeCoffee (line 92). The call has getRecipes()[recipeToPurchase] as
+        * the parameter. getRecipes() simply retrieves the recipeArray. makeCoffee is called in the main with
+        * recipeToPurchase as a parameter from the user input. So getRecipes()[recipeToPurchase] will return
+        * the recipe at index number chosen.
+        *
+        * */
+        boolean result;
+
         inventory.setCoffee(15);
-        //boolean answer = inventory.enoughIngredients(r1);
+        inventory.setMilk(15);
+        inventory.setSugar(15);
+        inventory.setChocolate(15);
+
+        result = inventory.enoughIngredients(r1);
+
+        assertTrue("failure - should be true", result);
     }
 
     @Test
     public void enoughIngredients_shouldFail() {
+        boolean result;
+
+        inventory.setCoffee(3);
+        inventory.setMilk(1);
         inventory.setSugar(0);
         inventory.setChocolate(15);
-        inventory.setMilk(1);
-        inventory.setCoffee(2);
-        inventory.enoughIngredients(r1);
+
+        result = inventory.enoughIngredients(r1);
+        System.out.println(result);
+
+        assertFalse("failure - should be false", result);
     }
 
     @Test
     public void useIngredients() {
+        //TODO check the value of each inventory after deductions are made?
     }
 }
