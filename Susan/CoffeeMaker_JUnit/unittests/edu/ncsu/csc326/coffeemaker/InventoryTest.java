@@ -11,28 +11,37 @@ public class InventoryTest {
     private Inventory inventory;
     private Recipe r1;
 
-    private int normalQuantity = 10;
-    private int negativeQuantity = -1;
-    private int extremeQuantity = 99999;
-    private int defaultQuantity = 15;
-    private String strNormalQuantity = "10";
-    private String strNegativeQuantity = "-1";
-    private String strExtremeQuantity = "99999";
-    private String nonNumerical = "hello";
+    private int normalQuantity;
+    private int negativeQuantity;
+    private int extremeQuantity;
+    private int defaultQuantity;
+    private String strNormalQuantity;
+    private String strNegativeQuantity;
+    private String strExtremeQuantity;
+    private String nonNumerical;
 
 
     @BeforeAll
     public void setUp() throws Exception {
         inventory = new Inventory();
 
+        normalQuantity = 10;
+        negativeQuantity = -1;
+        extremeQuantity = 99999;
+        defaultQuantity = 15;
+        strNormalQuantity = "10";
+        strNegativeQuantity = "-1";
+        strExtremeQuantity = "99999";
+        nonNumerical = "hello";
+
         //Set up for r1
         r1 = new Recipe();
-        //r1.setName("Coffee");
+        r1.setName("Coffee");
         r1.setAmtCoffee("4");
         r1.setAmtMilk("3");
         r1.setAmtSugar("2");
         r1.setAmtChocolate("1");
-        //r1.setPrice("50");
+        r1.setPrice("50");
 
     }
 
@@ -40,6 +49,9 @@ public class InventoryTest {
     public void tearDown() {
         inventory = null;
     }
+
+    //TODO can test getters by assert equals what we set to what we get when we call the get.
+
 
     @Test
     public void setChocolate_normalNumber() {
@@ -303,7 +315,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void enoughIngredients_shouldPass() {
+    public void enoughIngredients_true() {
         /*
         * r.getAmtCoffee and the others come from the useIngredients method below this method. This is called
         * by the CoffeeMaker class in the method makeCoffee (line 92). The call has getRecipes()[recipeToPurchase] as
@@ -324,23 +336,133 @@ public class InventoryTest {
         assertTrue("failure - should be true", result);
     }
 
+    //TODO should there be a not enough for each individual inventory item?? So not enough coffee, not enough milk etc
+    // treat this as an OR condition/decision statement. Partial coverage, Lecture 8, Slides 47 and 53
+    // We've checked should pass, so all if conditions true, now we can test each individual to be false, so 4 tests here.
     @Test
-    public void enoughIngredients_shouldFail() {
+    public void testEnoughIngredients_coffee_false() {
         boolean result;
 
         inventory.setCoffee(3);
-        inventory.setMilk(1);
-        inventory.setSugar(0);
+        inventory.setMilk(15);
+        inventory.setSugar(15);
         inventory.setChocolate(15);
 
         result = inventory.enoughIngredients(r1);
-        System.out.println(result);
 
         assertFalse("failure - should be false", result);
     }
 
     @Test
-    public void useIngredients() {
-        //TODO check the value of each inventory after deductions are made?
+    public void testEnoughIngredients_milk_false() {
+        boolean result;
+
+        inventory.setCoffee(15);
+        inventory.setMilk(2);
+        inventory.setSugar(15);
+        inventory.setChocolate(15);
+
+        result = inventory.enoughIngredients(r1);
+
+        assertFalse("failure - should be false", result);
     }
+
+    @Test
+    public void testEnoughIngredients_sugar_false() {
+        boolean result;
+
+        inventory.setCoffee(15);
+        inventory.setMilk(15);
+        inventory.setSugar(1);
+        inventory.setChocolate(15);
+
+        result = inventory.enoughIngredients(r1);
+
+        assertFalse("failure - should be false", result);
+    }
+
+    @Test
+    public void testEnoughIngredients_chocolate_false() {
+        boolean result;
+
+        inventory.setCoffee(15);
+        inventory.setMilk(15);
+        inventory.setSugar(15);
+        inventory.setChocolate(0);
+
+        result = inventory.enoughIngredients(r1);
+
+        assertFalse("failure - should be false", result);
+    }
+
+    @Test
+    public void testUseIngredients_true() {
+
+        inventory.setCoffee(15);
+        inventory.setMilk(15);
+        inventory.setSugar(15);
+        inventory.setChocolate(15);
+
+        assertTrue("failure - should return true", inventory.useIngredients(r1));
+    }
+
+    @Test
+    public void testUseIngredients_false() {
+
+        inventory.setCoffee(15);
+        inventory.setMilk(15);
+        inventory.setSugar(15);
+        inventory.setChocolate(0);
+
+        assertFalse("failure - should return false", inventory.useIngredients(r1));
+    }
+
+    @Test
+    public void testUseIngredients_coffeeAmt(){
+        inventory.setCoffee(defaultQuantity);
+        inventory.setMilk(defaultQuantity);
+        inventory.setSugar(defaultQuantity);
+        inventory.setChocolate(defaultQuantity);
+
+        inventory.useIngredients(r1);
+
+        assertEquals("failure - incorrect coffee amount deducted", defaultQuantity - r1.getAmtCoffee(), inventory.getCoffee());
+    }
+
+    @Test
+    public void testUseIngredients_milkAmt(){
+        inventory.setCoffee(defaultQuantity);
+        inventory.setMilk(defaultQuantity);
+        inventory.setSugar(defaultQuantity);
+        inventory.setChocolate(defaultQuantity);
+
+        inventory.useIngredients(r1);
+
+        assertEquals("failure - incorrect milk amount deducted", defaultQuantity - r1.getAmtMilk(), inventory.getMilk());
+    }
+
+    @Test
+    public void testUseIngredients_sugarAmt(){
+        inventory.setCoffee(defaultQuantity);
+        inventory.setMilk(defaultQuantity);
+        inventory.setSugar(defaultQuantity);
+        inventory.setChocolate(defaultQuantity);
+
+        inventory.useIngredients(r1);
+
+        assertEquals("failure - incorrect sugar amount deducted", defaultQuantity - r1.getAmtSugar(), inventory.getSugar());
+    }
+
+    @Test
+    public void testUseIngredients_chocolateAmt(){
+        inventory.setCoffee(defaultQuantity);
+        inventory.setMilk(defaultQuantity);
+        inventory.setSugar(defaultQuantity);
+        inventory.setChocolate(defaultQuantity);
+
+        inventory.useIngredients(r1);
+
+        assertEquals("failure - incorrect chocolate amount deducted", defaultQuantity - r1.getAmtChocolate(), inventory.getChocolate());
+    }
+
 }
