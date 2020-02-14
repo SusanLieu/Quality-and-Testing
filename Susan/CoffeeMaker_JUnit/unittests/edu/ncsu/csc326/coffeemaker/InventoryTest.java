@@ -50,7 +50,11 @@ public class InventoryTest {
         inventory = null;
     }
 
-    //TODO can test getters by assert equals what we set to what we get when we call the get.
+    @Test
+    public void testGetChocolate(){
+        inventory.setChocolate(normalQuantity);
+        assertEquals(normalQuantity, inventory.getChocolate());
+    }
 
 
     @Test
@@ -116,6 +120,12 @@ public class InventoryTest {
         Throwable exception = assertThrows(InventoryException.class, () -> {inventory.addChocolate(nonNumerical);});
 
         assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testGetCoffee(){
+        inventory.setCoffee(normalQuantity);
+        assertEquals(normalQuantity, inventory.getCoffee());
     }
 
     @Test
@@ -185,6 +195,12 @@ public class InventoryTest {
     }
 
     @Test
+    public void testGetMilk(){
+        inventory.setMilk(normalQuantity);
+        assertEquals(normalQuantity, inventory.getMilk());
+    }
+
+    @Test
     public void setMilk_normalNumber() {
         inventory.setMilk(normalQuantity);
         assertEquals("failure - milk not set to the correct value", normalQuantity, inventory.getMilk());
@@ -246,6 +262,12 @@ public class InventoryTest {
 
         Throwable exception = assertThrows(InventoryException.class, () -> {inventory.addMilk(nonNumerical);});
         assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testGetSugar(){
+        inventory.setSugar(normalQuantity);
+        assertEquals(normalQuantity, inventory.getSugar());
     }
 
     @Test
@@ -316,14 +338,6 @@ public class InventoryTest {
 
     @Test
     public void enoughIngredients_true() {
-        /*
-        * r.getAmtCoffee and the others come from the useIngredients method below this method. This is called
-        * by the CoffeeMaker class in the method makeCoffee (line 92). The call has getRecipes()[recipeToPurchase] as
-        * the parameter. getRecipes() simply retrieves the recipeArray. makeCoffee is called in the main with
-        * recipeToPurchase as a parameter from the user input. So getRecipes()[recipeToPurchase] will return
-        * the recipe at index number chosen.
-        *
-        * */
         boolean result;
 
         inventory.setCoffee(15);
@@ -336,9 +350,6 @@ public class InventoryTest {
         assertTrue("failure - should be true", result);
     }
 
-    //TODO should there be a not enough for each individual inventory item?? So not enough coffee, not enough milk etc
-    // treat this as an OR condition/decision statement. Partial coverage, Lecture 8, Slides 47 and 53
-    // We've checked should pass, so all if conditions true, now we can test each individual to be false, so 4 tests here.
     @Test
     public void testEnoughIngredients_coffee_false() {
         boolean result;
@@ -463,6 +474,17 @@ public class InventoryTest {
         inventory.useIngredients(r1);
 
         assertEquals("failure - incorrect chocolate amount deducted", defaultQuantity - r1.getAmtChocolate(), inventory.getChocolate());
+    }
+
+    @Test
+    public void testToString(){
+        inventory.setCoffee(10);
+        inventory.setMilk(9);
+        inventory.setSugar(8);
+        inventory.setChocolate(7);
+
+        String testString = inventory.toString();
+        assertEquals(testString, "Coffee: 10\nMilk: 9\nSugar: 8\nChocolate: 7\n");
     }
 
 }
