@@ -1,9 +1,18 @@
 package edu.ncsu.csc326.coffeemaker;
 
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
-import junit.framework.TestCase;
+//import junit.framework.TestCase;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.TestInstance;
+
+
+//import org.junit.jupiter.api.Assertions;
+//import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeAll;
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.TestInstance;
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 /**
  * 
@@ -11,14 +20,16 @@ import org.junit.jupiter.api.Assertions;
  *
  * Unit tests for CoffeeMaker class.
  */
-public class CoffeeMakerTest extends TestCase {
+public class CoffeeMakerTest {
 	
 	private CoffeeMaker cm;
 	private Recipe r1;
 	private Recipe r2;
 	private Recipe r3;
 	private Recipe r4;
+	private int negative = -1;
 
+	@BeforeAll
 	protected void setUp() throws Exception {
 		cm = new CoffeeMaker();
 		
@@ -58,9 +69,9 @@ public class CoffeeMakerTest extends TestCase {
 		r4.setAmtSugar("1");
 		r4.setPrice("65");
 		
-		super.setUp();
+		//super.setUp();
 	}
-	
+	@Test
 	public void testAddInventory() {
 		try {
 			cm.addInventory("4","7","0","9");
@@ -68,7 +79,7 @@ public class CoffeeMakerTest extends TestCase {
 			fail("InventoryException should not be thrown");
 		}
 	}
-	
+	@Test
 	public void testAddInventoryException() {
 		try {
 			cm.addInventory("4", "-1", "asdf", "3");
@@ -77,11 +88,24 @@ public class CoffeeMakerTest extends TestCase {
 			//success if thrown
 		}
 	}
-	
+/*
 	public void testMakeCoffee() {
 		cm.addRecipe(r1);
 		assertEquals(25, cm.makeCoffee(0, 75));
 	}
+	*/
+
+	@Test
+	public void makeCoffeeNegativeInput() {
+		cm.addRecipe(r2);
+		assertEquals(negative, cm.makeCoffee(1, negative));
+	}
+	@Test
+	public void makeCoffeePositive() {
+		cm.addRecipe(r3);
+		assertEquals(0, cm.makeCoffee(2, 100));
+	}
+
 	/*
 	@Test(expected = )
 	public void testMakeCoffeeNegativePaid() {
