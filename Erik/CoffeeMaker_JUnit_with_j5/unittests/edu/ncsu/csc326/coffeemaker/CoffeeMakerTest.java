@@ -2,13 +2,12 @@ package edu.ncsu.csc326.coffeemaker;
 
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 //import junit.framework.TestCase;
-import org.junit.Test;
-import org.junit.jupiter.api.TestInstance;
+//import org.junit.Test;
+import org.junit.jupiter.api.*;
 
 
 //import org.junit.jupiter.api.Assertions;
 //import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.TestInstance;
@@ -27,9 +26,10 @@ public class CoffeeMakerTest {
 	private Recipe r2;
 	private Recipe r3;
 	private Recipe r4;
+	private Recipe r5;
 	private int negative = -1;
 
-	@BeforeAll
+	@BeforeEach
 	protected void setUp() throws Exception {
 		cm = new CoffeeMaker();
 		
@@ -68,6 +68,12 @@ public class CoffeeMakerTest {
 		r4.setAmtMilk("1");
 		r4.setAmtSugar("1");
 		r4.setPrice("65");
+
+		r5 = new Recipe();
+		r5.setName("Hello");
+		r5.setAmtCoffee("1");
+		r5.setPrice("1000");
+
 		
 		//super.setUp();
 	}
@@ -88,6 +94,8 @@ public class CoffeeMakerTest {
 			//success if thrown
 		}
 	}
+
+
 /*
 	public void testMakeCoffee() {
 		cm.addRecipe(r1);
@@ -98,20 +106,97 @@ public class CoffeeMakerTest {
 	@Test
 	public void makeCoffeeNegativeInput() {
 		cm.addRecipe(r2);
-		assertEquals(negative, cm.makeCoffee(1, negative));
+		assertEquals(negative, cm.makeCoffee(0, negative));
 	}
 	@Test
 	public void makeCoffeePositive() {
 		cm.addRecipe(r3);
-		assertEquals(0, cm.makeCoffee(2, 100));
+		assertEquals(0, cm.makeCoffee(0, 100));
 	}
 
+	@Test
+	public void makeCoffeeLess() {
+		cm.addRecipe(r2);
+		assertEquals(30, cm.makeCoffee(0, 30));
+	}
+
+
+	@Test
+	public void makeCoffeNull() {
+		cm.addRecipe(r1);
+		cm.addRecipe(r2);
+		assertEquals(100, cm.makeCoffee(3, 100));
+	}
+
+	@Test
+	public void testAddRecipe() {
+		cm.addRecipe(r1);
+		Recipe[] recipes = cm.getRecipes();
+
+		assertEquals(recipes[0].toString(), r1.toString());
+	}
+
+	@Test
+	public void testAddRecipeTrue() {
+
+
+		assertTrue(cm.addRecipe(r1));
+	}
+	@Test
+	public void testAddRecipeFalse() {
+		cm.addRecipe(r1);
+		cm.addRecipe(r2);
+		cm.addRecipe(r3);
+		cm.addRecipe(r4);
+		assertFalse(cm.addRecipe(r5));
+	}
+	@Test
+	public void testDeleteRecipe() {
+		cm.addRecipe(r1);
+		assertEquals(cm.deleteRecipe(0), r1.getName());
+	}
+	@Test
+	public void testDeleteRecipeNull() {
+		assertEquals( null, cm.deleteRecipe(0));
+	}
+
+	@Test
+	public void testEditRecipe() throws Exception {
+		cm.addRecipe(r1);
+		Recipe r10 = new Recipe();
+		r10.setName("???");
+		r10.setPrice("10");
+		r10.setAmtCoffee("1");
+		cm.editRecipe(0, r10);
+	}
+
+	@Test
+	public void testReturnInventory() throws Exception {
+		cm.addInventory("10", "10", "0", "0");
+		assertEquals("Coffee: 25\nMilk: 25\nSugar: 15\nChocolate: 15\n", cm.checkInventory());
+	}
+
+
+
 	/*
-	@Test(expected = )
+	@Test
+	public void testAddInventory() {
+		cm.addInventory("20", "20", "20", "20");
+	}
+
+*/
+
+
+
+
+/*
+
+	@Test
 	public void testMakeCoffeeNegativePaid() {
 		cm.addRecipe(r1);
 		assertEquals(25, cm.makeCoffee(0, 75));
 	}
-*/
+	*/
+
 
 }

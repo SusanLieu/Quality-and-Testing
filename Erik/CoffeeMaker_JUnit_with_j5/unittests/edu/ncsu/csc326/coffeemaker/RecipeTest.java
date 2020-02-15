@@ -35,12 +35,12 @@ public class RecipeTest {
 
 
     @BeforeAll
-    public void setUp() throws Exception {
+    public void setUp() {
          recipe = new Recipe();
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
 
     }
 
@@ -59,7 +59,7 @@ public class RecipeTest {
     }
 
    @Test
-   public void testSetAmtChocolateWord() throws Exception {
+   public void testSetAmtChocolateWord(){
         String expectedMessage = "Units of chocolate must be a positive integer";
         Throwable exception = assertThrows(RecipeException.class,() -> recipe.setAmtChocolate(wordQ));
         assertEquals(expectedMessage, exception.getMessage());
@@ -73,7 +73,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void testSetAmtChocolateNegative() throws Exception {
+    public void testSetAmtChocolateNegative() {
     //    recipe.setAmtChocolate(negativeQ);
         String expectedMessage = "Units of chocolate must be a positive integer";
 
@@ -90,6 +90,8 @@ public class RecipeTest {
         assertEquals(Integer.parseInt(normalq), recipe.getAmtCoffee());
     }
 
+
+
     @Test
     public void testSetAmtCoffeeZero() throws Exception {
         recipe.setAmtCoffee(zeroQ);
@@ -104,7 +106,7 @@ public class RecipeTest {
 
     }
     @Test
-    public void setAmtCoffeeNegative() throws Exception {
+    public void setAmtCoffeeNegative() {
 
         String expectedMessage = "Units of coffee must be a positive integer";
 
@@ -125,6 +127,11 @@ public class RecipeTest {
         recipe.setAmtMilk(normalq);
         assertEquals(Integer.parseInt(normalq), recipe.getAmtMilk());
     }
+    @Test
+    public void setAmtMilkEmpty() {
+        Throwable exception = assertThrows(RecipeException.class,() -> recipe.setAmtMilk(""));
+        assertEquals("Units of milk must be a positive integer", exception.getMessage());
+    }
 
     @Test
     public void testSetAmtMilkZero() throws Exception {
@@ -139,7 +146,7 @@ public class RecipeTest {
         assertEquals(Integer.parseInt(hugeQ), recipe.getAmtMilk());
     }
     @Test
-    public void setAmtMilkNegative() throws Exception {
+    public void setAmtMilkNegative() {
         String expectedMessage = "Units of milk must be a positive integer";
 
         //assertEquals(recipe.getAmtChocolate(), null);
@@ -149,7 +156,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void setAmtMilkWord() throws Exception {
+    public void setAmtMilkWord() {
         String expectedMessage = "Units of milk must be a positive integer";
 
         //assertEquals(recipe.getAmtChocolate(), null);
@@ -187,7 +194,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void setAmtSugarWord() throws Exception {
+    public void setAmtSugarWord() {
         String expectedMessage = "Units of sugar must be a positive integer";
 
         //assertEquals(recipe.getAmtChocolate(), null);
@@ -196,7 +203,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void setNameNormal() throws Exception {
+    public void setNameNormal() {
         recipe.setName(normalName);
         assertEquals(normalName, recipe.getName());
     }
@@ -211,7 +218,7 @@ public class RecipeTest {
         assertEquals(Integer.parseInt(hugeQ), recipe.getPrice());
     }
     @Test
-    public void setPriceNegative() throws Exception {
+    public void setPriceNegative() {
         String expectedMessage = "Price must be a positive integer";
 
         //assertEquals(recipe.getAmtChocolate(), null);
@@ -227,7 +234,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void setPriceWord() throws Exception {
+    public void setPriceWord() {
         String expectedMessage = "Price must be a positive integer";
 
         //assertEquals(recipe.getAmtChocolate(), null);
