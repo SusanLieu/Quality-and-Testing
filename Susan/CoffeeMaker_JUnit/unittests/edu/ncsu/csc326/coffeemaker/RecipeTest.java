@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RecipeTest {
@@ -16,9 +17,11 @@ public class RecipeTest {
     private String wordQ;
     private String zeroQ;
     private String normalName;
+    private Recipe r1;
+    private Recipe r2;
 
     @BeforeAll
-    public void setUpAll(){
+    public void setUpAll() throws Exception {
 
         normalQ = "1";
         hugeQ = "99999999";
@@ -26,6 +29,17 @@ public class RecipeTest {
         wordQ = "Hello";
         zeroQ = "0";
         normalName = "Name";
+
+        //Set up for r1
+        r1 = new Recipe();
+        r1.setName("Coffee");
+        r1.setAmtChocolate("0");
+        r1.setAmtCoffee("3");
+        r1.setAmtMilk("1");
+        r1.setAmtSugar("1");
+        r1.setPrice("50");
+
+        r2 = r1;
     }
 
     @BeforeEach
@@ -248,10 +262,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void testHashCode() {
-    }
-
-    @Test
     public void testEquals() {
+        assertTrue(r1.equals(r2));
     }
 }
