@@ -3,9 +3,7 @@ package edu.ncsu.csc326.coffeemaker;
 import edu.ncsu.csc326.coffeemaker.exceptions.RecipeException;
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RecipeTest {
@@ -255,14 +253,10 @@ public class RecipeTest {
         Throwable exception = assertThrows(RecipeException.class,() -> recipe.setPrice(wordQ));
         assertEquals(expectedMessage, exception.getMessage());
     }
+
     @Test
     public void testToString() {
         recipe.setName("Name");
         assertEquals(recipe.toString(), "Name");
-    }
-
-    @Test
-    public void testEquals() {
-        assertTrue(r1.equals(r2));
     }
 }
