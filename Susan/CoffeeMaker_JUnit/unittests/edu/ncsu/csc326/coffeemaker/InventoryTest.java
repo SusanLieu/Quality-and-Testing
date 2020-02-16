@@ -1,8 +1,7 @@
 package edu.ncsu.csc326.coffeemaker;
 
-import static org.junit.Assert.*;
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -60,7 +59,7 @@ public class InventoryTest {
     @Test
     public void testSetChocolate_normalNumber() {
         inventory.setChocolate(normalQuantity);
-        assertEquals("failure - chocolate not set to the correct value", normalQuantity, inventory.getChocolate());
+        assertEquals(normalQuantity, inventory.getChocolate());
     }
 
     @Test
@@ -95,7 +94,7 @@ public class InventoryTest {
         String expectedMessage = "Units of chocolate must be a positive integer";
         Throwable exception = assertThrows(InventoryException.class, () -> {inventory.addChocolate(strNegativeQuantity);});
 
-        assertEquals("failure - InventoryException should be thrown", expectedMessage, exception.getMessage());
+        assertEquals(expectedMessage, exception.getMessage());
     }
 
     @Test
@@ -157,7 +156,7 @@ public class InventoryTest {
     public void testAddCoffee_normalNumber() throws InventoryException {
         inventory.setCoffee(defaultQuantity);
         inventory.addCoffee(strNormalQuantity);
-        assertEquals("failure - incorrect addition to coffee", normalQuantity + defaultQuantity, inventory.getCoffee());
+        assertEquals(normalQuantity + defaultQuantity, inventory.getCoffee());
     }
 
     @Test
@@ -175,7 +174,7 @@ public class InventoryTest {
         inventory.setCoffee(defaultQuantity);
         inventory.addCoffee(strExtremeQuantity);
 
-        assertEquals("failure - incorrect addition to coffee", extremeQuantity + defaultQuantity, inventory.getCoffee());
+        assertEquals(extremeQuantity + defaultQuantity, inventory.getCoffee());
     }
 
     @Test
@@ -183,7 +182,7 @@ public class InventoryTest {
         inventory.setCoffee(defaultQuantity);
         inventory.addCoffee("0");
 
-        assertEquals("failure - incorrect addition to coffee", defaultQuantity, inventory.getCoffee());
+        assertEquals(defaultQuantity, inventory.getCoffee());
     }
 
     @Test
@@ -203,7 +202,7 @@ public class InventoryTest {
     @Test
     public void testSetMilk_normalNumber() {
         inventory.setMilk(normalQuantity);
-        assertEquals("failure - milk not set to the correct value", normalQuantity, inventory.getMilk());
+        assertEquals(normalQuantity, inventory.getMilk());
     }
 
     @Test
@@ -229,7 +228,7 @@ public class InventoryTest {
     public void testAddMilk_normalNumber() throws InventoryException {
         inventory.setMilk(defaultQuantity);
         inventory.addMilk(strNormalQuantity);
-        assertEquals("failure - incorrect addition to milk", normalQuantity + defaultQuantity, inventory.getMilk());
+        assertEquals(normalQuantity + defaultQuantity, inventory.getMilk());
     }
 
     @Test
@@ -245,7 +244,7 @@ public class InventoryTest {
         inventory.setMilk(defaultQuantity);
         inventory.addMilk(strExtremeQuantity);
 
-        assertEquals("failure - incorrect addition to milk", extremeQuantity + defaultQuantity, inventory.getMilk());
+        assertEquals(extremeQuantity + defaultQuantity, inventory.getMilk());
     }
 
     @Test
@@ -253,7 +252,7 @@ public class InventoryTest {
         inventory.setMilk(defaultQuantity);
         inventory.addMilk("0");
 
-        assertEquals("failure - incorrect addition to milk", defaultQuantity, inventory.getMilk());
+        assertEquals(defaultQuantity, inventory.getMilk());
     }
 
     @Test
@@ -273,7 +272,7 @@ public class InventoryTest {
     @Test
     public void testSetSugar_normalNumber() {
         inventory.setSugar(normalQuantity);
-        assertEquals("failure - sugar not set to the correct value", normalQuantity, inventory.getSugar());
+        assertEquals(normalQuantity, inventory.getSugar());
     }
 
     @Test
@@ -308,7 +307,7 @@ public class InventoryTest {
         String expectedMessage = "Units of sugar must be a positive integer";
         Throwable exception = assertThrows(InventoryException.class, () -> {inventory.addSugar(strNegativeQuantity);});
 
-        assertEquals("failure - InventoryException should be thrown", expectedMessage, exception.getMessage());
+        assertEquals(expectedMessage, exception.getMessage());
 
     }
 
@@ -333,7 +332,7 @@ public class InventoryTest {
         String expectedMessage = "Units of sugar must be a positive integer";
         Throwable exception = assertThrows(InventoryException.class, () -> {inventory.addSugar(strNegativeQuantity);});
 
-        assertEquals("failure - InventoryException should be thrown", expectedMessage, exception.getMessage());
+        assertEquals(expectedMessage, exception.getMessage());
     }
 
     @Test
@@ -347,7 +346,7 @@ public class InventoryTest {
 
         result = inventory.enoughIngredients(r1);
 
-        assertTrue("failure - should be true", result);
+        assertTrue(result, "message");
     }
 
     @Test
@@ -361,7 +360,7 @@ public class InventoryTest {
 
         result = inventory.enoughIngredients(r1);
 
-        assertFalse("failure - should be false", result);
+        assertFalse(result);
     }
 
     @Test
@@ -375,7 +374,7 @@ public class InventoryTest {
 
         result = inventory.enoughIngredients(r1);
 
-        assertFalse("failure - should be false", result);
+        assertFalse(result);
     }
 
     @Test
@@ -389,7 +388,7 @@ public class InventoryTest {
 
         result = inventory.enoughIngredients(r1);
 
-        assertFalse("failure - should be false", result);
+        assertFalse(result);
     }
 
     @Test
@@ -403,7 +402,7 @@ public class InventoryTest {
 
         result = inventory.enoughIngredients(r1);
 
-        assertFalse("failure - should be false", result);
+        assertFalse(result);
     }
 
     @Test
@@ -414,7 +413,7 @@ public class InventoryTest {
         inventory.setSugar(15);
         inventory.setChocolate(15);
 
-        assertTrue("failure - should return true", inventory.useIngredients(r1));
+        assertTrue(inventory.useIngredients(r1));
     }
 
     @Test
@@ -425,7 +424,7 @@ public class InventoryTest {
         inventory.setSugar(15);
         inventory.setChocolate(0);
 
-        assertFalse("failure - should return false", inventory.useIngredients(r1));
+        assertFalse(inventory.useIngredients(r1));
     }
 
     @Test
@@ -437,7 +436,7 @@ public class InventoryTest {
 
         inventory.useIngredients(r1);
 
-        assertEquals("failure - incorrect coffee amount deducted", defaultQuantity - r1.getAmtCoffee(), inventory.getCoffee());
+        assertEquals(defaultQuantity - r1.getAmtCoffee(), inventory.getCoffee());
     }
 
     @Test
@@ -449,7 +448,7 @@ public class InventoryTest {
 
         inventory.useIngredients(r1);
 
-        assertEquals("failure - incorrect milk amount deducted", defaultQuantity - r1.getAmtMilk(), inventory.getMilk());
+        assertEquals(defaultQuantity - r1.getAmtMilk(), inventory.getMilk());
     }
 
     @Test
@@ -461,7 +460,7 @@ public class InventoryTest {
 
         inventory.useIngredients(r1);
 
-        assertEquals("failure - incorrect sugar amount deducted", defaultQuantity - r1.getAmtSugar(), inventory.getSugar());
+        assertEquals(defaultQuantity - r1.getAmtSugar(), inventory.getSugar());
     }
 
     @Test
@@ -473,7 +472,7 @@ public class InventoryTest {
 
         inventory.useIngredients(r1);
 
-        assertEquals("failure - incorrect chocolate amount deducted", defaultQuantity - r1.getAmtChocolate(), inventory.getChocolate());
+        assertEquals(defaultQuantity - r1.getAmtChocolate(), inventory.getChocolate());
     }
 
     @Test

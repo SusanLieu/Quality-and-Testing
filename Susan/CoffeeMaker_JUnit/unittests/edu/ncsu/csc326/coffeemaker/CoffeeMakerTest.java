@@ -145,6 +145,17 @@ public class CoffeeMakerTest {
 	}
 
 	@Test
+	public void testAddInventory_shouldNotThrowException() throws InventoryException {
+		Boolean exceptionThrown = false;
+		try{
+			cm.addInventory("1", "2", "3", "4");
+		} catch (InventoryException e) {
+			exceptionThrown = true;
+		}
+		assertFalse(exceptionThrown);
+	}
+
+	@Test
 	public void testAddInventory_shouldReturnTrue() throws InventoryException {
 
 		//assertTrue(cm.addInventory("4","3","4","8"));

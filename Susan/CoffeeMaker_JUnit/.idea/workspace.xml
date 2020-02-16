@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f50a8d0-16eb-455f-afc1-5057c1406dcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/edu/ncsu/csc326/coffeemaker/InventoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/ncsu/csc326/coffeemaker/InventoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/edu/ncsu/csc326/coffeemaker/RecipeBookTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/ncsu/csc326/coffeemaker/RecipeBookTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/InventoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/InventoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeBookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeBookTest.java" afterDir="false" />
@@ -63,25 +59,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="java" value="10824" />
+          <entry key="java" value="11124" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10824" />
+          <entry key="JAVA" value="11124" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
-          <entry key="java" value="37" />
+          <entry key="java" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="JAVA" value="37" />
+          <entry key="JAVA" value="42" />
         </counts>
       </usages-collector>
     </session>
@@ -91,13 +87,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+            <state relative-caret-position="2280">
+              <caret line="154" column="37" selection-start-line="154" selection-start-column="37" selection-end-line="154" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeBookTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="164" column="21" lean-forward="true" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/InventoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="49" />
+              <folding>
+                <element signature="e#1417#1418#0" expanded="true" />
+                <element signature="e#1488#1489#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,6 +164,7 @@
       <find>getRec</find>
       <find>edit</find>
       <find>get</find>
+      <find>true</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -155,10 +177,10 @@
         <option value="$PROJECT_DIR$/src/edu/ncsu/csc326/coffeemaker/CoffeeMaker.java" />
         <option value="$PROJECT_DIR$/src/edu/ncsu/csc326/coffeemaker/RecipeBook.java" />
         <option value="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeTest.java" />
-        <option value="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeBookTest.java" />
         <option value="$PROJECT_DIR$/src/edu/ncsu/csc326/coffeemaker/Recipe.java" />
         <option value="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.java" />
         <option value="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/InventoryTest.java" />
+        <option value="$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeBookTest.java" />
       </list>
     </option>
   </component>
@@ -361,7 +383,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581811456912" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581812866768" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -396,7 +418,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CoffeeMakerTest">
+  <component name="RunManager" selected="JUnit.RecipeBookTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ncsu.csc326.coffeemaker.Main" />
       <module name="CoffeeMaker_JUnit" />
@@ -475,11 +497,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RecipeBookTest" />
+        <item itemvalue="JUnit.InventoryTest" />
         <item itemvalue="JUnit.CoffeeMakerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RecipeBookTest" />
         <item itemvalue="JUnit.RecipeTest" />
-        <item itemvalue="JUnit.InventoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -497,20 +519,11 @@
       <workItem from="1581443185277" duration="386000" />
       <workItem from="1581497317715" duration="7687000" />
       <workItem from="1581507187103" duration="18255000" />
-      <workItem from="1581607017035" duration="49947000" />
+      <workItem from="1581607017035" duration="51213000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RecipeBookTest - 2020.02.16 at 00h 20m 57s.xml">
-      <configuration name="RecipeBookTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CoffeeMakerTest - 2020.02.16 at 00h 30m 30s.xml">
-      <configuration name="CoffeeMakerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CoffeeMakerTest - 2020.02.16 at 00h 33m 29s.xml">
-      <configuration name="CoffeeMakerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CoffeeMakerTest - 2020.02.16 at 00h 34m 07s.xml">
       <configuration name="CoffeeMakerTest" configurationId="JUnit" />
     </history-entry>
@@ -532,15 +545,24 @@
     <history-entry file="CoffeeMakerTest - 2020.02.16 at 00h 48m 43s.xml">
       <configuration name="CoffeeMakerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="InventoryTest - 2020.02.16 at 01h 24m 03s.xml">
+      <configuration name="InventoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InventoryTest - 2020.02.16 at 01h 24m 52s.xml">
+      <configuration name="InventoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RecipeBookTest - 2020.02.16 at 01h 27m 49s.xml">
+      <configuration name="RecipeBookTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79802000" />
+    <option name="totallyTimeSpent" value="81068000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="798" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49893844" visible="true" weight="0.16738197" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49893844" visible="true" weight="0.16738197" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -549,7 +571,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.50106156" side_tool="true" weight="0.25679544" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32294616" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32152975" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -558,7 +580,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32627118" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32577905" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -620,25 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ncsu/csc326/coffeemaker/CoffeeMaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="96" column="16" lean-forward="true" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
-          <folding>
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1200#1201#0" expanded="true" />
-            <element signature="e#1252#1253#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1932#1933#0" expanded="true" />
-            <element signature="e#2828#2829#0" expanded="true" />
-            <element signature="e#2865#2866#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ncsu/csc326/coffeemaker/RecipeBook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -683,28 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/InventoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6345">
-          <caret line="425" column="34" lean-forward="true" selection-start-line="425" selection-start-column="34" selection-end-line="425" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1417#1418#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeBookTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-559">
-          <caret line="177" column="27" lean-forward="true" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ncsu/csc326/coffeemaker/Inventory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -718,10 +699,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ncsu/csc326/coffeemaker/CoffeeMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+          <folding>
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+            <element signature="e#1932#1933#0" expanded="true" />
+            <element signature="e#2828#2829#0" expanded="true" />
+            <element signature="e#2865#2866#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/CoffeeMakerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        <state relative-caret-position="2280">
+          <caret line="154" column="37" selection-start-line="154" selection-start-column="37" selection-end-line="154" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/InventoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="49" />
+          <folding>
+            <element signature="e#1417#1418#0" expanded="true" />
+            <element signature="e#1488#1489#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unittests/edu/ncsu/csc326/coffeemaker/RecipeBookTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="164" column="21" lean-forward="true" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
