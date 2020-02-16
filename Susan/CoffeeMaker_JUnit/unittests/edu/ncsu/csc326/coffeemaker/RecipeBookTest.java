@@ -81,7 +81,7 @@ public class RecipeBookTest {
 
     @AfterEach
     public void tearDown() {
-        //TODO: What to put in here?
+        rb = null;
     }
 
     @Test

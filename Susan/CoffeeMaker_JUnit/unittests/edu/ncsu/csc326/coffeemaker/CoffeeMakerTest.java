@@ -77,12 +77,18 @@ public class CoffeeMakerTest {
 		r5.setPrice("1000");
 	}
 
+	@AfterAll
+	public void tearDown() {
+		cm = null;
+		inventory = null;
+	}
+
 	@Test
 	public void testAddRecipe_shouldReturnTrue() {
 		assertTrue(cm.addRecipe(r1));
 	}
 
-	//TODO maybe we don't actually need this since recipe book takes care of this?
+
 	@Test
 	public void testAddRecipe_correctRecipeAdded() {
 		cm.addRecipe(r1);
