@@ -4,9 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.*;
 
-
-// TODO where do we check notNull array stuffs?
-
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RecipeBookTest {
 
@@ -83,20 +80,23 @@ public class RecipeBookTest {
 
     @AfterEach
     public void tearDown() {
-
+        //TODO: What to put in here?
     }
 
-    /*@Test
-    public void testRecipeArray_isNull(){
-        assertNull("Should be null", recipeArr.length);
-    }*/
+    @Test
+    public void testRecipeArr_emptyArr_shouldReturnNull(){
+        assertNull("Should be null", recipeArr[0]);
+        assertNull("Should be null", recipeArr[1]);
+        assertNull("Should be null", recipeArr[2]);
+        assertNull("Should be null", recipeArr[3]);
+    }
 
     @Test
     public void testAddRecipe_emptyArr(){
         boolean result;
         result = rb.addRecipe(r1);
 
-        assertTrue("failure - should return true", result);
+        assertTrue("failure - should return true.", result);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class RecipeBookTest {
         rb.addRecipe(r1);
         result = rb.addRecipe(r1);
 
-        assertFalse("failure - should return false", result);
+        assertFalse("failure - should return false.", result);
     }
 
     @Test
@@ -115,7 +115,7 @@ public class RecipeBookTest {
         rb.addRecipe(r3);
         result = rb.addRecipe(r4);
 
-        assertTrue("failure - should return true", result);
+        assertTrue("failure - should return true.", result);
     }
 
     @Test
@@ -134,7 +134,7 @@ public class RecipeBookTest {
         rb.addRecipe(r4);
         result = rb.addRecipe(r5);
 
-        assertFalse("failure - should return false", result);
+        assertFalse("failure - should return false.", result);
     }
 
     @Test
@@ -144,29 +144,16 @@ public class RecipeBookTest {
         rb.addRecipe(r3);
         rb.addRecipe(r4);
 
-        assertEquals("failure - should return the same recipe", recipeArr[0], r1);
-        assertEquals("failure - should return the same recipe", recipeArr[1], r2);
-        assertEquals("failure - should return the same recipe", recipeArr[2], r3);
-        assertEquals("failure - should return the same recipe", recipeArr[3], r4);
+        assertEquals("failure - should return the same recipe.", recipeArr[0], r1);
+        assertEquals("failure - should return the same recipe.", recipeArr[1], r2);
+        assertEquals("failure - should return the same recipe.", recipeArr[2], r3);
+        assertEquals("failure - should return the same recipe.", recipeArr[3], r4);
     }
-
-    /*
-    * TODO: Maybe this should not be here, and empty assertions should be checked in recipeTest.
-    * This test throws exceptions from the Recipe class (RecipeException: Units of chocolate must be a positive integer).
-    * Make sure to test this in recipeTest, in the setAmtChocolate method.
-    * */
-    /*@Test
-    public void testAddRecipe_emptyInsertions() throws RecipeException {
-        boolean result;
-        result = rb.addRecipe(r6);
-
-        assertFalse("failure - should return false", result);
-    }*/
 
     @Test
     public void testDeleteRecipe_emptyArr(){
 
-        assertNull("failure - should return null", rb.deleteRecipe(1));
+        assertNull("failure - should return null.", rb.deleteRecipe(1));
     }
 
     @Test
@@ -174,7 +161,7 @@ public class RecipeBookTest {
         String deletedRecipeName;
         rb.addRecipe(r1);
         deletedRecipeName = rb.deleteRecipe(0);
-        assertEquals("failure - incorrect recipe deleted", r1.getName(), deletedRecipeName);
+        assertEquals("failure - incorrect recipe deleted.", r1.getName(), deletedRecipeName);
     }
 
     @Test
@@ -182,7 +169,7 @@ public class RecipeBookTest {
         rb.addRecipe(r1);
         rb.deleteRecipe(0);
 
-        assertNull("failure - index at deleted recipe should be null", recipeArr[0]);
+        assertNull("failure - index at deleted recipe should be null.", recipeArr[0]);
     }
 
     @Test
@@ -199,7 +186,7 @@ public class RecipeBookTest {
         String deletedRecipeName;
         rb.addRecipe(r1);
         deletedRecipeName = rb.deleteRecipe(1);
-        assertNull("failure - should return null", deletedRecipeName);
+        assertNull("failure - should return null.", deletedRecipeName);
     }
 
     @Test
@@ -216,14 +203,14 @@ public class RecipeBookTest {
 
     @Test
     public void testEditRecipe_emptyArr(){
-        assertNull("failure - should return null", rb.editRecipe(0, r1));
+        assertNull("failure - should return null.", rb.editRecipe(0, r1));
     }
 
     @Test
     public void testEditRecipe_recipeNotExist(){
         rb.addRecipe(r1);
         rb.addRecipe(r2);
-        assertNull("failure - should return null", rb.editRecipe(2, r3));
+        assertNull("failure - should return null.", rb.editRecipe(2, r3));
     }
 
     @Test
@@ -232,7 +219,7 @@ public class RecipeBookTest {
         rb.addRecipe(r1);
         recipeName = rb.editRecipe(0, r6);
 
-        assertEquals("failure - recipe name should be the same", r1.getName(), recipeName);
+        assertEquals("failure - recipe name should be the same.", r1.getName(), recipeName);
     }
 
     @Test

@@ -20,11 +20,8 @@ public class InventoryTest {
     private String strExtremeQuantity;
     private String nonNumerical;
 
-
     @BeforeAll
-    public void setUp() throws Exception {
-        inventory = new Inventory();
-
+    public void setUpAll(){
         normalQuantity = 10;
         negativeQuantity = -1;
         extremeQuantity = 99999;
@@ -33,6 +30,12 @@ public class InventoryTest {
         strNegativeQuantity = "-1";
         strExtremeQuantity = "99999";
         nonNumerical = "hello";
+    }
+
+
+    @BeforeEach
+    public void setUp() throws Exception {
+        inventory = new Inventory();
 
         //Set up for r1
         r1 = new Recipe();
@@ -42,42 +45,39 @@ public class InventoryTest {
         r1.setAmtSugar("2");
         r1.setAmtChocolate("1");
         r1.setPrice("50");
-
     }
 
-    @AfterAll
+    @AfterEach
     public void tearDown() {
         inventory = null;
     }
 
     @Test
     public void testGetChocolate(){
-        inventory.setChocolate(normalQuantity);
-        assertEquals(normalQuantity, inventory.getChocolate());
+        assertEquals(defaultQuantity, inventory.getChocolate());
     }
 
-
     @Test
-    public void setChocolate_normalNumber() {
+    public void testSetChocolate_normalNumber() {
         inventory.setChocolate(normalQuantity);
         assertEquals("failure - chocolate not set to the correct value", normalQuantity, inventory.getChocolate());
     }
 
     @Test
-    public void setChocolate_negativeNumber() {
+    public void testSetChocolate_negativeNumber() {
         inventory.setChocolate(defaultQuantity);
         inventory.setChocolate(negativeQuantity);
         assertEquals(defaultQuantity, inventory.getChocolate());
     }
 
     @Test
-    public void setChocolate_extremeNumber() {
+    public void testSetChocolate_extremeNumber() {
         inventory.setChocolate(extremeQuantity);
         assertEquals(extremeQuantity, inventory.getChocolate());
     }
 
     @Test
-    public void setChocolate_zero(){
+    public void testSetChocolate_zero(){
         inventory.setChocolate(0);
         assertEquals(0, inventory.getChocolate());
     }
@@ -129,26 +129,26 @@ public class InventoryTest {
     }
 
     @Test
-    public void setCoffee_normalNumber() {
+    public void testSetCoffee_normalNumber() {
         inventory.setCoffee(normalQuantity);
         assertEquals(normalQuantity, inventory.getCoffee());
     }
 
     @Test
-    public void setCoffee_negativeNumber() {
+    public void testSetCoffee_negativeNumber() {
         inventory.setCoffee(defaultQuantity);
         inventory.setCoffee(negativeQuantity);
         assertEquals(defaultQuantity, inventory.getCoffee());
     }
 
     @Test
-    public void setCoffee_extremeNumber() {
+    public void testSetCoffee_extremeNumber() {
         inventory.setCoffee(extremeQuantity);
         assertEquals(extremeQuantity, inventory.getCoffee());
     }
 
     @Test
-    public void setCoffee_zero(){
+    public void testSetCoffee_zero(){
         inventory.setCoffee(0);
         assertEquals(0, inventory.getCoffee());
     }
@@ -201,26 +201,26 @@ public class InventoryTest {
     }
 
     @Test
-    public void setMilk_normalNumber() {
+    public void testSetMilk_normalNumber() {
         inventory.setMilk(normalQuantity);
         assertEquals("failure - milk not set to the correct value", normalQuantity, inventory.getMilk());
     }
 
     @Test
-    public void setMilk_negativeNumber() {
+    public void testSetMilk_negativeNumber() {
         inventory.setMilk(defaultQuantity);
         inventory.setMilk(negativeQuantity);
         assertEquals(defaultQuantity, inventory.getMilk());
     }
 
     @Test
-    public void setMilk_extremeNumber() {
+    public void testSetMilk_extremeNumber() {
         inventory.setMilk(extremeQuantity);
         assertEquals(extremeQuantity, inventory.getMilk());
     }
 
     @Test
-    public void setMilk_zero(){
+    public void testSetMilk_zero(){
         inventory.setMilk(0);
         assertEquals(0, inventory.getMilk());
     }
@@ -271,26 +271,26 @@ public class InventoryTest {
     }
 
     @Test
-    public void setSugar_normalNumber() {
+    public void testSetSugar_normalNumber() {
         inventory.setSugar(normalQuantity);
         assertEquals("failure - sugar not set to the correct value", normalQuantity, inventory.getSugar());
     }
 
     @Test
-    public void setSugar_negativeNumber() {
+    public void testSetSugar_negativeNumber() {
         inventory.setSugar(defaultQuantity);
         inventory.setSugar(negativeQuantity);
         assertEquals(defaultQuantity, inventory.getSugar());
     }
 
     @Test
-    public void setSugar_extremeNumber() {
+    public void testSetSugar_extremeNumber() {
         inventory.setSugar(extremeQuantity);
         assertEquals(extremeQuantity, inventory.getSugar());
     }
 
     @Test
-    public void setSugar_zero(){
+    public void testSetSugar_zero(){
         inventory.setSugar(0);
         assertEquals(0, inventory.getSugar());
     }
@@ -337,7 +337,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void enoughIngredients_true() {
+    public void testEnoughIngredients_true() {
         boolean result;
 
         inventory.setCoffee(15);

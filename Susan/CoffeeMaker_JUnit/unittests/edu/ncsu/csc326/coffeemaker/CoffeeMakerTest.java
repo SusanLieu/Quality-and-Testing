@@ -1,8 +1,9 @@
 package edu.ncsu.csc326.coffeemaker;
 
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
-import junit.framework.TestCase;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * 
@@ -10,16 +11,25 @@ import org.junit.jupiter.api.Assertions;
  *
  * Unit tests for CoffeeMaker class.
  */
-public class CoffeeMakerTest extends TestCase {
+public class CoffeeMakerTest {
 	
 	private CoffeeMaker cm;
+	private Inventory inventory;
 	private Recipe r1;
 	private Recipe r2;
 	private Recipe r3;
 	private Recipe r4;
+	private Recipe r5;
+	private int negative;
+	private int defaultQuantity;
 
+	@BeforeEach
 	protected void setUp() throws Exception {
 		cm = new CoffeeMaker();
+		inventory = new Inventory();
+		negative = -1;
+		defaultQuantity = 15;
+
 		
 		//Set up for r1
 		r1 = new Recipe();
@@ -56,30 +66,133 @@ public class CoffeeMakerTest extends TestCase {
 		r4.setAmtMilk("1");
 		r4.setAmtSugar("1");
 		r4.setPrice("65");
-		
-		super.setUp();
+
+		//Set up for r5
+		r5 = new Recipe();
+		r5.setName("Hello");
+		r5.setAmtChocolate("5");
+		r5.setAmtCoffee("1");
+		r4.setAmtMilk("2");
+		r4.setAmtSugar("3");
+		r5.setPrice("1000");
 	}
-	
-	public void testAddInventory() {
-		try {
-			cm.addInventory("4","7","0","9");
-		} catch (InventoryException e) {
-			fail("InventoryException should not be thrown");
-		}
+
+	@Test
+	public void testAddRecipe_shouldReturnTrue() {
+		assertTrue(cm.addRecipe(r1));
 	}
-	
-	public void testAddInventoryException() {
-		try {
-			cm.addInventory("4", "-1", "asdf", "3");
-			fail("InventoryException should be thrown");
-		} catch (InventoryException e) {
-			//success if thrown
-		}
+
+	//TODO maybe we don't actually need this since recipe book takes care of this?
+	@Test
+	public void testAddRecipe_correctRecipeAdded() {
+		cm.addRecipe(r1);
+		Recipe[] recipes = cm.getRecipes();
+
+		assertEquals(r1.toString(), recipes[0].toString());
 	}
-	
-	public void testMakeCoffee() {
+
+	@Test
+	public void testAddRecipe_shouldReturnFalse() {
+		cm.addRecipe(r1);
+		cm.addRecipe(r2);
+		cm.addRecipe(r3);
+		cm.addRecipe(r4);
+
+		assertFalse(cm.addRecipe(r5));
+	}
+
+	@Test
+	public void testDeleteRecipe_recipeExists_shouldReturnName(){
+		cm.addRecipe(r1);
+
+		assertEquals(r1.getName(), cm.deleteRecipe(0));
+	}
+
+	@Test
+	public void testDeleteRecipe_shouldReturnNull(){
+		cm.addRecipe(r1);
+
+		assertNull(cm.deleteRecipe(2));
+	}
+
+	@Test
+	public void testEditRecipe_shouldReturnName(){
+		cm.addRecipe(r1);
+
+		assertEquals(r1.getName(), cm.editRecipe(0, r2));
+	}
+
+	@Test
+	public void testEditRecipe_shouldReturnNull(){
+		cm.addRecipe(r1);
+		assertNull(cm.editRecipe(2, r3));
+	}
+
+	@Test
+	public void testAddInventory_actuallyAdded() throws InventoryException {
+		cm.addInventory("4","7","0","9");
+
+		assertEquals(defaultQuantity + 4, inventory.getCoffee());
+		assertEquals(defaultQuantity + 7, inventory.getMilk());
+		assertEquals(defaultQuantity + 0, inventory.getSugar());
+		assertEquals(defaultQuantity + 9, inventory.getChocolate());
+	}
+
+	@Test
+	public void testAddInventory_shouldThrowException() {
+		assertThrows(InventoryException.class, () -> {
+			cm.addInventory("4", "-1", "asdf", "3");});
+	}
+
+	@Test
+	public void testAddInventory_shouldReturnTrue() throws InventoryException {
+
+		//assertTrue(cm.addInventory("4","3","4","8"));
+	}
+
+	@Test
+	public void testAddInventory_shouldReturnFalse() throws InventoryException {
+
+		//assertFalse(cm.addInventory("-1","3","4","8"));
+	}
+
+	@Test
+	public void testCheckInventory(){
+		inventory.setSugar(10);
+		inventory.setMilk(10);
+		inventory.setChocolate(10);
+		inventory.setCoffee(10);
+		assertEquals("Coffee: 10\nMilk: 10\nSugar: 10\nChocolate: 10\n", cm.checkInventory());
+	}
+
+	@Test
+	public void testMakeCoffee_enoughPaid() {
 		cm.addRecipe(r1);
 		assertEquals(25, cm.makeCoffee(0, 75));
 	}
 
+	@Test
+	public void testMakeCoffee_notEnoughPaid() {
+		cm.addRecipe(r1);
+		assertEquals(25, cm.makeCoffee(0, 25));
+	}
+
+	@Test
+	public void testMakeCoffee_noRecipeAtIndex() {
+		cm.addRecipe(r1);
+		assertEquals(75, cm.makeCoffee(1, 75));
+	}
+
+	@Test
+	public void testMakeCoffee_notEnoughInventory() {
+		inventory.setCoffee(2);
+		cm.addRecipe(r1);
+		assertEquals(75, cm.makeCoffee(0, 75));
+	}
+
+	@Test
+	public void makeCoffee_negativeInput() {
+		cm.addRecipe(r2);
+		assertEquals(negative, cm.makeCoffee(0, negative));
+	}
 }
