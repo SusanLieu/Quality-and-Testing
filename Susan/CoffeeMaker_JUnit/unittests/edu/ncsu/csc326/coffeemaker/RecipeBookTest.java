@@ -245,5 +245,4 @@ public class RecipeBookTest {
 
         assertNull(rb.editRecipe(7, r6));
     }
-
 }

@@ -485,5 +485,4 @@ public class InventoryTest {
         String testString = inventory.toString();
         assertEquals(testString, "Coffee: 10\nMilk: 9\nSugar: 8\nChocolate: 7\n");
     }
-
 }
