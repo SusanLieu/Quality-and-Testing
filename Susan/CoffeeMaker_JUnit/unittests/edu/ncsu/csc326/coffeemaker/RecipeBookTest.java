@@ -231,7 +231,17 @@ public class RecipeBookTest {
     }
 
     @Test
-    public void testEditRecipe_exceedArrLen(){
+    public void testEditRecipe_recipeSameName(){
+        String recipeName;
+        rb.addRecipe(r1);
+        recipeName = r1.getName();
+        rb.editRecipe(0, r6);
+
+        assertEquals(recipeName, recipeArr[0].getName());
+    }
+
+    @Test
+    public void testEditRecipe_exceedArrayLen(){
 
         assertNull(rb.editRecipe(7, r6));
     }

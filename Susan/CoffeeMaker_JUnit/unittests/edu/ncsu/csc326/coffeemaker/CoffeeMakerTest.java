@@ -152,7 +152,7 @@ public class CoffeeMakerTest {
 		} catch (InventoryException e) {
 			exceptionThrown = true;
 		}
-		assertFalse(exceptionThrown);
+		assertFalse(exceptionThrown, "failure - exception was thrown.");
 	}
 
 	@Test
@@ -202,8 +202,15 @@ public class CoffeeMakerTest {
 	}
 
 	@Test
-	public void makeCoffee_negativeInput() {
+	public void testMakeCoffee_negativeInput() {
 		cm.addRecipe(r2);
 		assertEquals(negative, cm.makeCoffee(0, negative));
+	}
+
+	//Additional test added after exploratory testing
+	@Test
+	public void testMakeCoffee_negativeIndex(){
+
+		assertEquals(-1, cm.makeCoffee(-1, 100));
 	}
 }
